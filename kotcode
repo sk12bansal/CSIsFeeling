@@ -1,0 +1,47 @@
+GlobalScope.launch(Dispatchers.IO) {
+            repeat (to) {
+                val event = collectContentFilterList(mContentFiltersList.get(index))
+                if (event != null) {
+                    mHubDataList.put(mContentFiltersList.get(index++), event as Any)
+                }
+            }
+            GlobalScope.launch(Dispatchers.Main) {
+                // Logger.d("surakum2:loadContent", mHubDataList.size.toString() + index.toString())
+                updateHubAdapters(mHubDataList)
+            }
+        }
+
+
+        size -=to
+        while (size >= to) {
+            GlobalScope.launch(Dispatchers.IO) {
+                repeat(to) {
+                    val event = collectContentFilterList(mContentFiltersList.get(index))
+                    if (event != null) {
+                        mHubDataList.put(mContentFiltersList.get(index++), event as Any)
+                    }
+                }
+                GlobalScope.launch(Dispatchers.Main) {
+                    // Logger.d("surakum2:loadContent", mHubDataList.size.toString() + index.toString())
+                    updateHubAdapters(mHubDataList)
+                }
+            }
+            size -= to
+        }
+
+
+        
+           /* ClientUiCommon.mainSectionsList.zip(dmStoreRootClassification.classifications.items){
+                a: MainSectionDescriptor, b: DmStoreClassification ->
+
+                //println("surakum2 4"+ClientUiMapping.getMainSectionTitle(a,null,0))
+                //println("surakum2 4"+b.title)
+                val descriptor = ClientUiMapping.getMainSectionTitle(a, null, 0)
+                val classification = b.title
+                if(descriptor.equals(classification,ignoreCase = true)) {
+                    mStoreClassification.put(a, b)
+                    println("surakum2 4"+ descriptor)
+                    println("surakum2 4"+classification)
+                }
+            }
+*/

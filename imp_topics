@@ -1,0 +1,96 @@
+design patterns
+singleton  - done
+adapter  - done
+pubsub   - done
+observer - done
+decorator
+factory - done
+builder - done
+facade
+proxy
+iterator
+composite
+stragety patterns
+
+
+
+dynamic programing
+
+01 knapsack
+longest palindrome substring - done
+min cost path - done
+unique path - done
+subset sum problem - done
+coin change - done
+max profit- done
+max cost path
+edit distance
+egg dropping
+longest increasing subsequnce -done
+longest common subseqeunce
+Minimum nummber of coins
+
+matrix
+rat maze
+n queen
+print matrix diagonally -done
+search element in sorted matrix - done
+print spiral matrix
+
+
+
+tree:
+LCA
+inorder successor -done
+construct tree pre ,in 
+construct tree pre , post
+construct tree post ,in
+bst insert,search, delete
+next right siblings
+height of tree
+diameter of tree
+left view
+right view
+bottom view
+top view
+boundary traversal
+n distinct tree 
+max path sum
+Binary to DLL
+
+array
+triplet sum
+trapping rain in water
+minimum platform required
+next greater element
+permutation of given number/strings
+
+
+
+Publisher Subscriber
+
+1) Decouples a system's services.
+2) Easily add subscribers and publishers without informing the other.
+3) Converts multiple points of failure to single point of failure.
+4) Interaction logic can be moved to services/ message broker.
+
+Disadvantages:
+1) An extra layer of interaction slows services
+2) Cannot be used in systems requiring strong consistency of data
+3) Additional cost to team for redesigning, learning and maintaining the message queues.
+
+
+diff between mutablelivedata and livedata
+map flatmap switchmap concatmap zip merge in details
+Strategy Pattern
+storage pattern and files format for livedata and mutablelivedata
+viewmodel in details
+databinding 
+Difference between FragmentPagerAdapter vs FragmentStatePagerAdapter?
+
+
+
+
+
+
+

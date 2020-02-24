@@ -1,0 +1,71 @@
+What is difference between interface and abstract class in Java
+
+1) First and the major difference between abstract class and an interface is that an abstract class is a class while the interface is an interface, means by extending the abstract class you can not extend another class because Java does not support multiple inheritances but you can implement multiple inheritance in Java.
+
+2) The second difference between interface and abstract class in Java is that you can not create a non-abstract method in an interface, every method in an interface is by default abstract, but you can create a non-abstract method in abstract class. Even a class which doesn't contain any abstract method can be made abstract by using the abstract keyword.
+
+3) The third difference between abstract class vs interface in Java is that interface is better suited for Type declaration and abstract class is more suited for code reuse and evolution perspective.
+
+4) The fourth difference between abstract class and interface in Java is that abstract class are slightly faster than interface because interface involves a search before calling any overridden method in Java. This is not a significant difference in most of the cases but if you are writing a time critical application then you may not want to leave any stone unturned.
+
+5) Another notable difference between interface and abstract class is that when you add a new method in existing interface it breaks all its implementation and you need to provide an implementation in all clients which is not good. By using an abstract class you can provide a default implementation for a new method in the superclass without breaking existing clients.
+
+
+Give an example where you prefer abstract class over interface?
+This is common but yet tricky design interview question. both interface and abstract class follow "writing code for interface than implementation" design principle which adds flexibility in code, quite important to tackle with changing requirement. here are some pointers which help you to answer this question:
+
+	1. In Java you can only extend one class but implement multiple interface. So if you extend a class you lost your chance of extending another class.
+
+	2. Interface are used to represent adjective or behavior e.g. Runnable, Clonable, Serializable etc, so if you use an abstract class to represent behavior your class can not be Runnable and Clonable at same time because you can not extend two class in Java but if you use interface your class can have multiple behavior at same time.
+
+	3. On time critical application prefer abstract class is slightly faster than interface.
+
+	4. If there is a genuine common behavior across the inheritance hierarchy which can be coded better at one place than abstract class is preferred choice. Some time interface and abstract class can work together also where defining function in interface and default functionality on abstract class.
+
+
+Serialization and Deserialization in Java
+Serialization is a mechanism of converting the state of an object into a byte stream. Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory. This mechanism is used to persist the object.
+
+writeObject() method for serializing an Object
+
+readObject() method for deserializing an object.
+
+Points to remember
+1. If a parent class has implemented Serializable interface then child class doesn’t need to implement it but vice-versa is not true.
+2. Only non-static data members are saved via Serialization process.
+3. Static data members and transient data members are not saved via Serialization process.So, if you don’t want to save value of a non-static data member then make it transient.
+4. Constructor of object is never called when an object is deserialized.
+5. Associated objects must be implementing Serializable interface.
+
+
+
+Advantage of Encapsulation in Java and OOPS
+Here are few advantages of using Encapsulation while writing code in Java or any Object oriented programming language:
+
+1. Encapsulated Code is more flexible and easy to change with new requirements.
+2. Encapsulation in Java makes unit testing easy.
+3. Encapsulation in Java allows you to control who can access what.
+4. Encapsulation also helps to write immutable class in Java which is a good choice in multi-threading
+environment.
+5. Encapsulation reduces coupling of modules and increases cohesion inside a module because all piece of one thing
+is encapsulated in one place.
+6. Encapsulation allows you to change one part of code without affecting other parts of code.
+
+What should you encapsulate in code
+Anything which can be change and more likely to change in near future is a candidate of Encapsulation. This also helps to write more specific and cohesive code. An example of this is object creation code, code which can be improved in future like sorting and searching logic.
+
+
+What is Polymorphism in Java? Overloading or Overriding? (answer)
+Polymorphism is another object oriented concept which adds dynamic nature and flexibility in your code. Both overloading and overriding are based on Polymorphism but one is compile time Polymorphism while other is runtime Polymorphism.
+
+
+What is difference between Abstraction and Polymorphism in Java?
+Both Abstraction and Polymorphism is Object oriented fundamentals one provides simplification of interfaces while other provide the flexibility and dynamic nature. Abstraction hides the complexity and present a general interface.
+
+
+Difference between Inheritance and Polymorphism in Java? (answer)
+Main difference between Inheritance and Polymorphism is that Inheritance create relationship between two classes in Java i.e. parent child relationship and Polymorphism take advantage of that to provide flexibility. You cannot have runtime Polymorphism e.g. method overriding without Inheritance in Java.
+
+
+Difference between Aggregation, Composition and Association in OOP? (answer)
+All three are Object oriented programming concepts to define relationship between objects. When one object make use of another object to do the task they are said to be associated with each other and when an object is made of several object in such that individual object has no value without it's owner e.g. Human is composition of body parts, when Human dies, body parts also dies. Aggregation on the other hand is less stronger form of composition where individual object can survive without owner e.g. City is aggregation of People. People can survive without cities.

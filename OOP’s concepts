@@ -1,0 +1,12 @@
+OOP’s concepts
+Collections, use of HashMap and ConcurrentHashMap difference between them.
+Multi threading, Green threads, whether java uses Green threads.
+JVM, classloader different types and their hierarchy and class loading mechanism, heap space and stack.
+String, Immutable classes
+
+
+Design a parking lot system, which can accommodate vehicles of three different types, cards, trucks and bikes. The system should be able to allocate the nearest available parking slot the the vehicles and when the vehicles checks out they should be charged amount based on their type and the time they occupied the parking lot.
+
+Given two ropes of uneven density which burn entirely in sixty minutes how can you measure forty-five minutes.
+
+Given a backend and a front-end the front-end gives bunch of data to the backend(Backend A), the backend then sends that data to another backend(Backend B). What mechanism can be used to communicate Backend A with Backend B.(The interviewer wanted to know if I am familiar with REST APIs, SOAP APIs, and JMS for communication between backends and what to use in which scenario)

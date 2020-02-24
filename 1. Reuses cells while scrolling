@@ -1,0 +1,5 @@
+1. Reuses cells while scrolling
+2. Animate to list items
+3. Change the item container ( linear layout or grid layout using Layout Manager)
+4. Divider between two items
+5. Multiple views in the same listing

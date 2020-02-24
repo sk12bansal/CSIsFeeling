@@ -1,0 +1,195 @@
+ c.parallelStream().forEach {
+                    println(it)
+                    val def1 = async {
+                        shopgroService.getProductList(
+                            authToken,
+                            createRequestBody(categoryList.category.get(i++).subcategory)
+                        )
+                    }
+                    /*val def2 = async {
+                        shopgroService.getProductList(
+                            authToken,
+                            createRequestBody(categoryList.category.get(i++).subcategory)
+                        )
+                    }
+                    val def3 = async {
+                        shopgroService.getProductList(
+                            authToken,
+                            createRequestBody(categoryList.category.get(i++).subcategory)
+                        )
+                    }
+                    val def4 = async {
+                        shopgroService.getProductList(
+                            authToken,
+                            createRequestBody(categoryList.category.get(i++).subcategory)
+                        )
+                    }*/
+                    //val def5 = async { shopgroService.getProductList(authToken,createRequestBody(categoryList.category.get(4).subcategory)) }
+
+                    productList1.add(def1.await().products)
+                }
+
+//parallel stream
+
+                CoroutineScope(Dispatchers.IO).launch {
+            val categoryList =
+                async { shopgroService.getCategory(authToken, "112", requestBody) }.await()
+
+            val timetaken = measureTimeMillis {
+                categoryList.category.parallelStream().forEach {
+
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val def1 = async {
+                            shopgroService.getProductList(
+                                authToken,
+                                createRequestBody(it.subcategory)
+
+                            )
+                        }
+                        productList1.add(def1.await().products)
+                    }
+                }
+                createCategoryDataModel1(categoryList, productList1)
+            }
+            println("surakum2 "+timetaken)
+
+        }
+
+
+
+//        for(it in mContentFiltersList){
+//            mStoreClassification.put(it,dmStoreRootClassification.classifications.items.get(0))
+//        }
+
+
+            //if(it.mainSectionContentFilterType.equals(MainHubContentView.MainSectionContentFilterType.WATCHLIST)) {
+        /*GlobalScope.launch (Dispatchers.IO) {
+            for (it in mContentFiltersList) {
+                if (it is MainHubContentView.ClassificationMainSectionContentFilterDescriptor){
+
+                    if(it.classificationId !=null){
+
+                    }
+                }else {
+                    val swimlaneDataModel = async { collectContentFilterList(it, classificationList) }
+                    mHubDataList.put(it, swimlaneDataModel as Any)
+                }
+            }
+            GlobalScope.launch(Dispatchers.Main) {
+                // Logger.d("surakum2:loadContent", mHubDataList.size.toString() + index.toString())
+                updateHubAdapters(mHubDataList)
+                customProgressBar.hide()
+            }
+        }*/
+
+       /* mContentFiltersList.zip(classificationList){
+            a,b ->
+            val descriptor  = a as MainHubContentView.ClassificationMainSectionContentFilterDescriptor
+            println("surakum2 890" + descriptor.classificationId + " " + b.classifications)
+        }*/
+
+
+
+
+
+        //fetchHubDescriptorData(mainSectionDescriptor)
+
+
+            //}
+
+
+       /* var size = mContentFiltersList.size
+        val to = 4
+        var index = 0
+        while (size >= to) {
+            for (i in 1..to) {
+                runBlocking(Dispatchers.Default) {
+
+                    val response = async { collectContentFilterList(mContentFiltersList.get(index)) }.await()
+                    mHubDataList.put(mContentFiltersList.get(index++), response as Any)
+                }
+            }
+            size -= to
+        }
+
+        for (i in 1..size) {
+            runBlocking(Dispatchers.Default) {
+                val response = async { collectContentFilterList(mContentFiltersList.get(index)) }.await()
+                mHubDataList.put(mContentFiltersList.get(index++), response as Any)
+            }
+        }*/
+
+
+        val job = CoroutineScope(Dispatchers.Default).launch {
+
+            val descriptor = ClientUiMapping.getMainSectionTitle(mainSectionDescriptor, null, 0)
+            classificationList.clear()
+            for (it in dmStoreRootClassification.classifications!!.items) {
+                if (descriptor.equals(it.title, ignoreCase = true)) {
+
+                    val subClassifications = async { RefAppServer.getSharedInstance().getCategories(it) }.await()
+                    classificationList.addAll(subClassifications.classifications.items)
+                    break
+                }
+            }
+
+
+            val timetaken = measureTimeMillis {
+                for(it in mContentFiltersList) {
+
+                    CoroutineScope(Dispatchers.Default).launch {
+                        val def1 = async { collectContentFilterList(it,classificationList) }
+                        mHubDataList.put(it,def1.await())
+                    }
+                }
+            }
+           // delay(3000)
+            GlobalScope.launch(Main) {
+                // Logger.d("surakum2:loadContent", mHubDataList.size.toString() + index.toString())
+                updateHubAdapters(mHubDataList)
+                customProgressBar.hide()
+            }
+            println("surakum2 "+timetaken)
+        }
+
+
+
+   // working good with some bug
+   
+
+   CoroutineScope(IO).launch {
+
+            val subClassifications = async { RefAppServer.getSharedInstance().getCategories(currentStoreClassificationDescriptor) }.await()
+            classificationList.clear()
+            classificationList.addAll(subClassifications.classifications.items)
+
+            println("surakum2 " + classificationList.size)
+
+            val timeTaken = measureTimeMillis {
+
+                while (i < size && (size - i) >= 4) {
+                    // val timebatch = measureTimeMillis {
+                    val def1 = async { collectContentFilterList(mContentFiltersList.get(i), classificationList) }
+                    val def2 = async { collectContentFilterList(mContentFiltersList.get(i + 1), classificationList) }
+                    val def3 = async { collectContentFilterList(mContentFiltersList.get(i + 2), classificationList) }
+                    val def4 = async { collectContentFilterList(mContentFiltersList.get(i + 3), classificationList) }
+
+
+                    mHubDataList.put(mContentFiltersList.get(i), def1.await())
+                    mHubDataList.put(mContentFiltersList.get(i + 1), def2.await())
+                    mHubDataList.put(mContentFiltersList.get(i + 2), def3.await())
+                    mHubDataList.put(mContentFiltersList.get(i + 3), def4.await())
+                    i += 4
+                }
+                while (i < size) {
+                    val def1 = async { collectContentFilterList(mContentFiltersList.get(i), classificationList) }.await()
+                    mHubDataList.put(mContentFiltersList.get(i), def1)
+                    i++
+                }
+                CoroutineScope(Main).launch {
+                    updateHubAdapters(mHubDataList)
+                    customProgressBar.hide()
+                }
+            }
+            println("surakum2 " + timeTaken)
+        }     

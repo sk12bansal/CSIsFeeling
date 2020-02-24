@@ -1,0 +1,180 @@
+/* MainHubContentView.MainSectionContentFilterType.CUSTOM_CONTENT_FILTER -> {
+                if (contentFilterDescriptor is MainHubContentView.ClassificationMainSectionContentFilterDescriptor){
+
+                    val classificationId = contentFilterDescriptor.classificationId
+                    for(it in classificationList){
+                        if(it.id.startsWith(classificationId)){
+                            //println("surakum2 67" + it.id)
+                            *//*var sortingType: SortingType? = null
+                            if (sortingItem == null) {
+                                sortingType = AppCache.getClassificationSortingType(classification)
+                            } else {
+                                sortingType = SortingType.valueOf(sortingItem.id)
+                            }*//*
+                            var classification = it
+                            val url = RefAppServerprovider.getAggregatedContent(classification, null, true, null, 50, AppConfig.quirks_classificationDefaultSource)
+                            val authtoken  = "Bearer "+ OAuthUtils.getSharedInstance().loadAccessToken()
+
+                            println("surakum2  authtoken" + authtoken)
+
+                            //var eventList = DmEventList()
+
+                            CoroutineScope(IO).launch {
+                                val eventList = async { APIClient.refApi.getAggregatedContent(authtoken, url)}.await()
+                                finalSwimlaneDataModel = createSwimlaneDataModel(it.title, eventList)
+                                println("surakum2  authtoken" + finalSwimlaneDataModel.dmEvent.size)
+                            }
+                        }
+                        break
+                    }
+*/
+                    /*val filterClassification :DmStoreClassification = contentFilterDescriptor as DmStoreClassification
+                    if(filterClassification!=null){
+                        println("surakum2 1" + contentFilterDescriptor.classificationId)
+                        if (filterClassification) {
+                            AppCache.getSharedInstance().getStoreContentDataAsync(filterClassification, null, null, null, AppCache.DEFAULT_COUNT, listener)
+                        } else {
+                            AppCache.getSharedInstance().getStoreMenuDataAsync(filterClassification, listener)
+                        }
+                    }*/
+
+                    //if(contentFilterDescriptor.classification!=null){
+                       // println("surakum22" + contentFilterDescriptor.classification)
+                        //println("surakum2 1" + contentFilterDescriptor.classification.isLeaf)
+                   // }
+
+                    /*if(contentFilterDescriptor.classificationId!=null){
+                        println("surakum2 17" + contentFilterDescriptor.classificationId)
+                       // AppCache.getSharedInstance().getStoreMenuDataAsync(contentFilterDescriptor.classificationId, null)
+
+                    }*/
+                    /*val classification = parent as DmStoreClassification?
+                    if (sortingItem == null) {
+                        sortingType = AppCache.getClassificationSortingType(classification)
+                    } else {
+                        sortingType = SortingType.valueOf(sortingItem.id)
+                    }
+
+                    if (classification != null) {
+                        val eventList = RefAppServer.getSharedInstance().getAggregatedContent(classification, sortingType, true, anchor, count, AppConfig.quirks_classificationDefaultSource)
+                        data.items.put(AppCache.SCREEN_DATA_STORE_CONTENT_CONTENT_ITEMS, eventList)
+                    } else {
+                        val eventList = RefAppServer.getSharedInstance().getContentInstances(classification, sortingType, true, anchor, count)
+                        data.items.put(AppCache.SCREEN_DATA_STORE_CONTENT_CONTENT_ITEMS, eventList)
+                    }*/
+               // }
+                /* if (contentFilterDescriptor is ClassificationMainSectionContentFilterDescriptor) {
+                    val classificationContentFilterDescriptor = contentFilterDescriptor
+                    if (classificationContentFilterDescriptor.classificationId!=null) {
+                        if (classificationContentFilterDescriptor.classificationId != ClientUiMapping.getLocalizedStringByResourceId(R.string.DIC_SWIMLANE_APPS) && classificationContentFilterDescriptor.classificationId != ClientUiMapping.getLocalizedStringByResourceId(R.string.DIC_SWIMLANE_MY_GENRE)) {
+                            if (!classificationContentFilterDescriptor.classification.isLeaf()) {
+                                val subClassifications = RefAppServer.getSharedInstance().getCategories(classificationContentFilterDescriptor.classification)
+                                if (subClassifications.classifications != null && subClassifications.classifications.items.size > 0) {
+                                    for (classification in subClassifications.classifications.items) {
+                                        classification.isBlurBackground = contentFilterDescriptor.isBlurBackground
+                                    }
+                                }
+                                //val isFeatured: Boolean = data.items.containsKey(SCREEN_DATA_MAINHUB_FILTER_STORE_FEATURED_CLASSIFICATION)
+                                for (subClassification in subClassifications.classifications.items) {
+                                    *//*if (!isFeatured) {
+                                    if (getClassificationIsPromotion(subClassification)) {
+                                        data.items.put(SCREEN_DATA_MAINHUB_FILTER_STORE_FEATURED_CLASSIFICATION, subClassification)
+                                    }
+                                }*//*
+                                return handleBecauseYouWatchedClassificationData(subClassification)
+                            }
+                        }
+                    }
+                }
+            }*/
+
+            //}
+
+
+
+            /*val recommendationCount = ClientUiCommon.FILTER_CONTAINER_SEE_ALL_ITEM_THRESHOLD + 1;
+                val sources: Array<RefAppServer.SourceType> = arrayOf<RefAppServer.SourceType>(RefAppServer.SourceType.STORE)
+                val eventList = RefAppServer.getSharedInstance().getRecommendationsPreferences(sources, false, recommendationCount, contentFilterDescriptor.duration)
+                return eventList*/
+                
+
+                /* @Throws(IOException::class)
+     suspend fun getAggregatedContent(classification: DmStoreClassification?, sortingType: SortingType?, isErotic: Boolean, anchor: DmEvent?, count: Int, isDefaultSourceEnabled: Boolean): DmEventList? {
+        val baseUrl = mVersionApiUrl + API_PATH_AGGREGATED_CONTENT
+        //val parser: IAppServerDmParser = RefDmEventListParser.getSharedInstance()
+        val builder = StringBuilder()
+        builder.append(baseUrl)
+        AppServerCommon.addEscapedRequestParameter(builder, "categoryId", classification?.getId())
+        addSortingParam(sortingType, builder)
+        if (anchor != null) {
+            val locator = anchor.extendedParams[RefDmEventParser.EVENT_EXTENDED_PARAMS_LOCATOR] as String?
+            if (!TextUtils.isEmpty(locator)) {
+                AppServerCommon.addEscapedRequestParameter(builder, "locator", "" + locator)
+                AppServerCommon.addEscapedRequestParameter(builder, "offset", "" + 1)
+            }
+        }
+        AppServerCommon.addEscapedRequestParameter(builder, "limit", "" + count)
+        AppServerCommon.addEscapedRequestParameter(builder, "isAdult", "false")
+        AppServerCommon.addEscapedRequestParameter(builder, "isErotic", "" + isErotic)
+        // TODO: QUIRK remove once CTAP make the fix
+        if (isDefaultSourceEnabled) {
+            AppServerCommon.addEscapedRequestParameter(builder, "source", "vod")
+        }
+        val url = AppServerCommon.resolveUrlParameters(builder.toString(), mUrlParameterResolver)
+        //val headers: Map<String, String> = getApiHeaders(RefAppServerProvider.ApiType.GET_AGGREGATED_CONTENT, null)
+        //val task = ConnectionTask.obtainGetTask(url, headers)
+        //val eventList = getData(task, parser) as DmEventList
+        val authtoken  = "Bearer "+OAuthUtils.getSharedInstance().loadAccessToken()
+
+        println("surakum2  authtoken" + authtoken)
+
+        var eventList = DmEventList()
+        CoroutineScope(IO).launch {
+            eventList = async { APIClient.refApi.getAggregatedContent(authtoken, url)}.await()
+        }
+
+        return eventList
+
+        /*//TODO: QUIRK patch event source
+        if (eventList.items.size > 0 && eventList.items[0].source != RefDmEventParser.EVENT_SOURCE_TYPE_LINEAR) {
+            setEventSource(eventList, RefDmEventParser.EVENT_SOURCE_TYPE_VOD)
+        }*/
+    }*/
+
+
+    /* @Throws(IOException::class)
+     fun getRecommendations(sources: Array<SourceType?>?, isErotic: Boolean, count: Int): DmEventList? {
+         val baseUrl: String = mVersionApiUrl + RefAppServerProvider.API_PATH_AGGREGATED_RECOMMENDATIONS
+         val parser: IAppServerDmParser = RefDmEventListParser.getSharedInstance()
+         val builder = StringBuilder()
+         builder.append(baseUrl)
+         if (sources != null) {
+             //AppServerCommon.addEscapedRequestParameter(builder, "source", convertSourceType(sources))
+         }
+         AppServerCommon.addEscapedRequestParameter(builder, "limit", "" + count)
+         AppServerCommon.addEscapedRequestParameter(builder, "isAdult", "false")
+         AppServerCommon.addEscapedRequestParameter(builder, "isErotic", "" + isErotic)
+         val url = AppServerCommon.resolveUrlParameters(builder.toString(), mUrlParameterResolver)
+         //val headers: Map<String, String> = getApiHeaders(RefAppServerProvider.ApiType.GET_RECOMMENDATIONS, null)
+         //val task = ConnectionTask.obtainGetTask(url, headers)
+         //val eventList = getData(task, parser) as DmEventList
+         //TODO: QUIRK patch event source
+         if (sources != null && sources.size == 1) {
+             var source = RefDmEventParser.EVENT_SOURCE_TYPE_LINEAR
+             when (sources[0]) {
+                 SourceType.LINEAR -> {
+                     source = RefDmEventParser.EVENT_SOURCE_TYPE_LINEAR
+                 }
+                 SourceType.STORE -> {
+                     source = RefDmEventParser.EVENT_SOURCE_TYPE_VOD
+                 }
+                 SourceType.LIBRARY -> {
+                     source = RefDmEventParser.EVENT_SOURCE_TYPE_PVR
+                 }
+             }
+             //setEventSource(eventList, source)
+         }
+         //return eventList
+     }*/
+
+      

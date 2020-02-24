@@ -1,0 +1,36 @@
+https://www.geeksforgeeks.org/form-minimum-number-from-given-sequence/
+https://www.geeksforgeeks.org/value-to-be-subtracted-from-array-elements-to-make-sum-of-all-elements-equals-k/
+
+Given a string like ‘UUUDULR’, need to derive the final coordinates starting from (0, 0). This is pretty easy and he is asked to add a few other test cases if I would like to. Not much to add as it is not having any corner cases.
+
+Given a dictionary, and a list of letters ( or consider as a string), find the longest word that only uses letters from the string.
+
+https://www.geeksforgeeks.org/find-recurring-sequence-fraction/
+
+Given a dictionary of the words(strings) which contains different words & you are given an input string e.g. “abd”. You need to find the largest word available in the supplied dictionary which can be made using the letters of input string. The returned word can contain only the same no of occurrences of the letters as given in the input string i.e. if a letter is given once then in the output it should be existed only once. Examples:
+Dictionary {“to”, “banana”, “toe”, “dogs”, “ababcd”, “elephant”} and input string is “eot”. Output should be “toe”
+Dictionary is same as specified in example a but the input string is “ogtdes” and the output is “dogs” and “toes”
+
+https://www.geeksforgeeks.org/program-to-add-two-fractions/
+
+https://www.geeksforgeeks.org/collect-maximum-coins-before-hitting-a-dead-end/
+
+Given a dictionary of words and a specific word. You need to find the list of longest words in the dictionary which are anagrams to the given word.
+
+Given two sorted arrays, find the median of them. //done
+https://www.geeksforgeeks.org/minimum-length-subarray-sum-greater-given-value/
+Find minimum sub array whose sum is at least to the given target.  done
+Given a log file as some array of strings in a specified format where each lines begin with IP address. You have to find most frequently occurring IP.
+3. You have to create your own parseInt() function in Java.
+
+
+
+https://www.geeksforgeeks.org/find-recurring-sequence-fraction/  done
+
+https://www.geeksforgeeks.org/trapping-rain-water/  done
+
+
+https://www.geeksforgeeks.org/find-subarray-with-given-sum/  done
+
+
+https://www.geeksforgeeks.org/minimum-length-subarray-sum-greater-given-value/ done

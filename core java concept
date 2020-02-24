@@ -1,0 +1,95 @@
+1. What do you mean by platform independence of Java?
+Platform independence means that you can run the same Java Program in any Operating System. For example, you can write java program in Windows and run it in Mac OS.
+
+2.What is JVM and is it platform independent?
+Java Virtual Machine (JVM) is the heart of java programming language. JVM is responsible for converting byte code into machine readable code. JVM is not platform independent, thats why you have different JVM for different operating systems. We can customize JVM with Java Options, such as allocating minimum and maximum memory to JVM. It’s called virtual because it provides an interface that doesn’t depend on the underlying OS.
+
+3.What is the difference between JDK and JVM?
+Java Development Kit (JDK) is for development purpose and JVM is a part of it to execute the java programs.
+
+JDK provides all the tools, executables and binaries required to compile, debug and execute a Java Program. The execution part is handled by JVM to provide machine independence.
+
+4.What is the difference between JVM and JRE?
+Java Runtime Environment (JRE) is the implementation of JVM. JRE consists of JVM and java binaries and other classes to execute any program successfully. JRE doesn’t contain any development tools like java compiler, debugger etc. If you want to execute any java program, you should have JRE installed.
+
+6.When do you overload a method in Java and when do you override it?
+Rather a simple question for experienced designer in Java. if you see different implementation of a class has different way of doing certain thing than overriding is the way to go while overloading is doing same thing but with different input. method signature varies in case of overloading but not in case of overriding in java.
+
+7. Why non static variable can not be called from static method?
+Static variable in Java belongs to Class and its value remains same for all instance. static variable initialized when class is loaded into JVM on the other hand instance variable has different value for each instances and they get created when instance of an object is created either by using new() operator or using reflection like Class.newInstance(). So if you try to access a non static variable without any instance compiler will complain because those variables are not yet created and they don't have any existence until an instance is created and they are associated with any instance. So in my opinion only reason which make sense to disallow non static or instance variable inside static context is non existence of instance.
+
+
+8. Abstraction in Java
+Data Abstraction is the property by virtue of which only the essential details are displayed to the user.The trivial or the non-essentials units are not displayed to the user. Ex: A car is viewed as a car rather than its individual components.
+
+Consider a real-life example of a man driving a car. The man only knows that pressing the accelerators will increase the speed of car or applying breaks will stop the car but he does not know about how on pressing the accelerator the speed is actually increasing, he does not know about the inner mechanism of the car or the implementation of accelerator, brakes etc in the car. This is what abstraction is.
+
+9. Encapsulation in Java
+Encapsulation binds together the data and functions that manipulate the data, keeping it safe from interference and misuse.
+
+Real World Example: Every time you log into your email account( GMail, Yahoo, Hotmail or official mail), you have a whole lot of processes taking place in the backend, that you have no control over. So your password, would probably be retrieved in an encyrpted form, verified and only then you are given access. You do not have any control, over how the password is verified, and this keeps it safe from misuse.
+
+10.Encapsulation vs Data Abstraction
+Encapsulation is data hiding(information hiding) while Abstraction is detail hiding(implementation hiding).
+While encapsulation groups together data and methods that act upon the data, data abstraction deals with exposing the interface to the user and hiding the details of implementation.
+
+11.  Difference between String, StringBuffer and StringBuilder in Java? 
+String is immutable while both StringBuffer and StringBuilder is mutable.
+StringBuffer is synchronized while StringBuilder is not
+
+12. Difference between extends Thread vs implements Runnable in Java? 
+
+Difference comes from the fact that you can only extend one class in Java, which means if you extend Thread class you lose your opportunity to extend another class, on the other hand if you implement Runnable, you can still extend another class.
+
+13. Difference between Runnable and Callable interface in Java? 
+Runnable was the only way to implement a task in Java which can be executed in parallel before JDK 1.5 adds Callable. Just like Runnable, Callable also defines a single call() method but unlike run() it can return values and throw exceptions.
+
+14. Difference between ArrayList and LinkedList in Java? (detailed answer)
+In short, ArrayList is backed by array in Java, while LinkedList is just collection of nodes, similar to linked list data structure. ArrayList also provides random search if you know the index, while LinkedList only allows sequential search. On other hand, adding and removing element from middle is efficient in LinkedList as compared to ArrayList because it only require to modify links and no other element is rearranged.
+
+15.What is difference between wait and notify in Java? 
+Both wait and notify methods are used for inter thread communication, where wait is used to pause the thread on a condition and notify is used to send notification to waiting threads. Both must be called from synchronized context e.g. synchronized method or block.
+
+16.Difference between HashMap and Hashtable in Java?
+Though both HashMap and Hashtable are based upon hash table data structure, there are subtle difference between them. HashMap is non synchronized while Hashtable is synchronized and because of that HashMap is faster than Hashtable, as there is no cost of synchronization associated with it. One more minor difference is that HashMap allows a null key but Hashtable doesn't.
+
+17.Difference between TreeSet and TreeMap in Java? 
+Though both are sorted collection, TreeSet is essentially a Set data structure which doesn't allow duplicate and TreeMap is an implementation of Map interface. In reality, TreeSet is implemented via a TreeMap, much like how HashSet is implemented using HashMap.
+
+18.Difference between Serializable and Externalizable in Java? 
+Serializable is a marker interface with no methods defined it but Externalizable interface has two methods defined on it e.g. readExternal() and writeExternal() which allows you to control the serialization process. Serializable uses default serialization process which can be very slow for some application.
+
+19.Difference between transient and volatile in Java? 
+transient keyword is used in Serialization while volatile is used in multi-threading. If you want to exclude a variable from serialization process then mark that variable transient. Similar to static variable, transient variables are not serialized. On the other hand, volatile variables are signal to compiler that multiple threads are interested on this variable and it shouldn't reorder its access. volatile variable also follows happens-before relationship, which means any write happens before any read in volatile variable. You can also make non atomic access of double and long variable atomic using volatile.
+
+20.How do you convert bytes to character in Java? 
+Bytes are converted to character or text data using character encoding. When you read binary data from a file or network endpoint, you provide a character encoding to convert those bytes to equivalent character. Incorrect choice of character encoding may alter meaning of message by interpreting it differently.
+
+21.Can you override static method in Java? 
+No, you cannot override static method in Java because they are resolved at compile time rather than runtime. Though you can declare and define static method of same name and signature in child class, this will hide the static method from parent class, that's why it is also known as method hiding in Java.
+
+22.What will happen if you put return statement or System.exit () on try or catch block? Will finally block execute?
+the finally block will always execute. This question challenge that concept by putting a return statement in the try or catch block or calling System.exit() from try or catch block. Answer of this tricky question in Java is that finally block will execute even if you put a return statement in the try block or catch block but finally block won't run if you call System.exit() from try or catch block.
+
+23.Can you override static method in Java?
+No, you cannot override static method in Java because they are resolved at compile time rather than runtime. Though you can declare and define static method of same name and signature in child class, this will hide the static method from parent class, that's why it is also known as method hiding in Java.
+
+24.Difference between private, public, package and protected in Java?
+All four are access modifier in Java but only private, public and protected are modifier keyword. There is no keyword for package access, its default in Java. Which means if you don't specify any access modifier than by default that will be accessible inside the same package. Private variables are only accessible in the class they are declared, protected are accessible inside all classes in same package but only on sub class outside package and public variables e.g. method, class or variables are accessible anywhere. This is highest level of access modifier and provide lowest form of encapsulation.
+
+25.What is equlas() and hashCode() contract in Java? Where does it used? (detailed answer)
+The key point of contract is that if two objects are equal by equals() method then they must have same hashcode, but unequal object can also have same hashcode, which is the cause of collision on hash table based collection e.g HashMap. When you override equals() you must remember to override hashCode() method to keep the contract valid.
+
+26. What is difference between synchronize and concurrent Collection in Java? (detailed answer)
+There was time, before Java 1.5 when you only have synchronized collection if you need them in a multi-threaded Java program. Those classes were plagued with several issue most importantly performance because they lock the whole collection or map whenever a thread reads or writes. To address those issue, Java released couple of Concurrent collection classes e.g. ConcurrentHashMap, CopyOnWriteArrayList and BlockingQueue to provide more scalability and performance.
+
+27. What is difference between Iterator and Enumeration in Java? (detailed answer)
+Main difference is that Iterator was introduced in place of Enumeration. It also allows you to remove elements from collection while traversing which was not possible with Enumeration. The methods of Iterator e.g. hasNext() and next() are also more concise then corresponding methods in Enumeration e.g. hasMoreElements(). You should always use Iterator in your Java code as Enumeration may get deprecated and removed in future Java release.
+
+28. Difference between Comparator and Comparable in Java? (detailed answer)
+This is one more basic concept, I expect every Java candidate to know. You will deal with them on every Java project. Several core classes in Java e.g. String, Integer implements Comparable to define their natural sorting order and if you define a value class or a domain object then you should also implement Comparable and define natural ordering of your object. Main difference between these two is that, you could create multiple Comparator to define multiple sorting order based upon different attribute of object. Also, In order to implement Comparable you must have access of the class or code, but you can use Comparator without having source code of class, all you need is the JAR file of particular object. That's why Comparator is very powerful to implement custom sorting order and from Java 8 you can do it even more elegantly, as seen here.
+
+29. What is difference between Checked and Unchecked Exception in Java? (detailed answer)
+Checked exception ensures that handling of exception is provided and its verified by compiler also, while for throwing unchecked exception no special provision is needed e.g. throws clause. A method can throw unchecked exception without any throw clause.
+
+

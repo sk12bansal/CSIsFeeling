@@ -1,0 +1,32 @@
+Important Topic of Java
+
+Immutable classes in Java. Started with basic details on how to make any class immutable.
+After that they gave some scenarios like the class contains ArrayList, hence when getter for that is called, if we return the ArrayList as is, it will violate the concept of Immutability, as the elements inside the ArrayList can be modified.
+
+Abstract Class vs Interface (When to use when)
+
+
+OOPs, concepts used in your J2EE Framework (Not your project – Here they want to know how well you know Core Java concepts used behind J2EE frameworks)For Example Managed Beans follows the concept of Encapsulation. Program to an interface and not the class – Polymorphism.
+Question on Java Collection
+Singleton class and ways to achieve that (Deep Discussion on Early Initialization vs Late Initialization vs Bill Pugh)
+
+
+All possible questions on Java Collections:
+Internal working of HashSet
+ArrayList vs LinkedList (In terms of usage)
+Hashtable vs HashMap vs ConcurrentHashMap
+
+Method level Synchronization vs Block Level Synchronization?
+
+What immuatable objects
+
+-How to create immutbale classes with example
+String immutability, explain?
+-Arraylist vs Linkedlist vs HashMap
+
+Some questions related to String Constant Pool, 
+Functional Interface.
+Marker interface
+Abstraction,Encapsulation,HashMap,HashTable.
+
+threads,marker interface ,seriliazation,synchronization,timers,deadlock

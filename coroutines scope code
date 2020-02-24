@@ -1,0 +1,55 @@
+/*CoroutineScope(IO).launch {
+
+            val subClassifications = async { RefAppServer.getSharedInstance().getCategories(currentStoreClassificationDescriptor) }.await()
+            classificationList.clear()
+            classificationList.addAll(subClassifications.classifications.items)
+
+            println("surakum2 " + classificationList.size)
+
+            val timeTaken = measureTimeMillis {
+
+                while (i < size && (size - i) >= 4) {
+                    // val timebatch = measureTimeMillis {
+                    val def1 = async { collectContentFilterList(mContentFiltersList.get(i), classificationList) }
+                    val def2 = async { collectContentFilterList(mContentFiltersList.get(i + 1), classificationList) }
+                    val def3 = async { collectContentFilterList(mContentFiltersList.get(i + 2), classificationList) }
+                    val def4 = async { collectContentFilterList(mContentFiltersList.get(i + 3), classificationList) }
+
+
+                    mHubDataList.put(mContentFiltersList.get(i), def1.await())
+                    mHubDataList.put(mContentFiltersList.get(i + 1), def2.await())
+                    mHubDataList.put(mContentFiltersList.get(i + 2), def3.await())
+                    mHubDataList.put(mContentFiltersList.get(i + 3), def4.await())
+                    i += 4
+                }
+                while (i < size) {
+                    val def1 = async { collectContentFilterList(mContentFiltersList.get(i), classificationList) }.await()
+                    mHubDataList.put(mContentFiltersList.get(i), def1)
+                    i++
+                }
+                CoroutineScope(Main).launch {
+                    updateHubAdapters(mHubDataList)
+                    customProgressBar.hide()
+                }
+            }
+            println("surakum2 " + timeTaken)
+        }*/
+
+
+        /*GlobalScope.launch (IO) {
+            for (it in mContentFiltersList) {
+                val swimlaneDataModel = async {  collectContentFilterList(it,classificationList)}.await()
+                mHubDataList.put(it, swimlaneDataModel as Any)
+            }
+            GlobalScope.launch(Dispatchers.Main) {
+                // Logger.d("surakum2:loadContent", mHubDataList.size.toString() + index.toString())
+                updateHubAdapters(mHubDataList)
+                customProgressBar.hide()
+            }
+        }*/
+         mContentFiltersList.zip(classificationList){
+                a,b->
+                //val descriptor = a as MainHubContentView.ClassificationMainSectionContentFilterDescriptor
+                println("surakum2 "+ a.mainSectionContentFilterType)
+                println("surakum2 " + b)
+            }

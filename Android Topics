@@ -1,0 +1,38 @@
+Benefits of RecyclerView
+1. Reuses cells while scrolling
+2. Animate to list items
+3. Change the item container ( linear layout or grid layout using Layout Manager)
+4. Divider between two items
+5. Multiple views in the same listing
+
+Diffrent ways to communicate with fragment to fragment
+
+1. using interface
+2. using intents
+3. using broadcastreceiver
+4. using shared perferences
+
+What is the difference between list view and recycler view
+1. viewHolders
+2.Item Decoration
+3.Layout Manager
+4.item Animator
+5. Notifying Change in Data
+
+
+ different between Explicit and implicit intents
+
+Explicit Intent: When your application is aware of which component to call to perform some action
+
+Implicit Intent: When your application is not aware of which component can exactly perform your desired action. For Ex, If you simply say that you want to display a URL, the system decides what component will fulfill the intention.
+
+Pending Intent
+
+A PendingIntent is a token that you give to a foreign application (e.g. NotificationManager, AlarmManager, Home Screen AppWidgetManager, or other 3rd party applications), which allows the foreign application to use your application's permissions to execute a predefined piece of code.
+
+If you give the foreign application an Intent, it will execute your Intent with its own permissions. But if you give the foreign application a PendingIntent, that application will execute your Intent using your application's permission.
+
+Intent Filter:
+An intent filter is an expression in an app's manifest file that specifies the type of intents that the component would like to receive.
+
+When you create an implicit intent, the Android system finds the appropriate component to start by comparing the contents of the intent to the intent filters declared in the manifest file of other apps on the device. If the intent matches an intent filter, the system starts that component and delivers it the Intent object.

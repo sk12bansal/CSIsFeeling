@@ -1,0 +1,21 @@
+Reasons why you should use livedata?
+1.livedata ensures your UI matches your data state
+	Live data follows the observer pattern.
+	livedata notifies observer when the lifecycle state changes.
+2.you won't get memory  leaks
+	observers are bound to lifecycle objects
+	lifecycle objects are cleaned up after their associated lifecycle is detroyed.
+3.No crashes due to stopped activities.
+	if the observer is lifecycle is inactive such as in the case of an activity in the backstack then it doesn't receive any livedata events
+
+4.No more manual lifecycle handling
+	UI component just observe relevant data and don't stop or resume observation.
+
+	Livedata automatically manages all of this since it's aware of the relevant lifecycle status changes while observing.
+
+5.Your data is always up to data.
+	what happens if a lifecycle becomes inactive?
+	if would receive the latest data upon becoming active again.
+6.proper configuration changes.
+	onconfiguration changes like device rotation immediately latest avaliable data is receiived.
+	prevents redundant requests to network or db.

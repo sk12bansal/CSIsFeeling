@@ -1,0 +1,25 @@
+Spring Goals
+
+Enable building production ready application quickly
+provide common non-functional features
+embedded servers (TOMCAT Jetty)
+metrics
+health checks
+externalized 
+
+what spring  boot is not !
+Zero code generation
+neither an application server nor a web server
+
+features
+
+quick starter projects with  Auto Configuration
+-web
+-JPA
+Embedded Servers - Tomcat , jetty or undertow
+
+production ready feature
+- metrics and health checks
+- externalized configuration
+
+

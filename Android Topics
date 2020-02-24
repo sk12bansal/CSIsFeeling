@@ -36,3 +36,14 @@ Intent Filter:
 An intent filter is an expression in an app's manifest file that specifies the type of intents that the component would like to receive.
 
 When you create an implicit intent, the Android system finds the appropriate component to start by comparing the contents of the intent to the intent filters declared in the manifest file of other apps on the device. If the intent matches an intent filter, the system starts that component and delivers it the Intent object.
+
+
+What is Live Data?
+LiveData is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state
+
+
+Handle Multiple Screen Sizes in Android
+Basically we are mainly this things by three ways.
+1. Explicitly declare in the manifest which screen sizes your application supports.
+2. Provide different layouts for different screen sizes.
+3. Provide different bitmap drawables for different screen densities.

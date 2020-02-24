@@ -6,16 +6,3 @@ deadlock
 real time examples of ds
 min and max elelemnt find in array best soltuion
 missing element.
-
-
-
-/vode-dashciscenc/75ccb7c2-0274-538e-acc1-e5b300e2e6ea/CC_481_eng_CEA-608/147.m4f HTTP/1.1
-
-
-curl --verbose http://vod-asset-playback.astro.com.my/vode-dashciscenc/75ccb7c2-0274-538e-acc1-e5b300e2e6ea/CC_481_eng_CEA-608/147.m4 
-
-
-http://vod-asset-playback.astro.com.my/vode-dashciscenc/75ccb7c2-0274-538e-acc1-e5b300e2e6ea/CC_481_eng_CEA-608_wvtt/236.m4f).
-2020-01-31 13:38:27.851 16453-18764/com.astro.astro I/NEXPLAYER: [Time 4205110219] [T18764] SRC4:[WrapStream 10263] FLOWCB_HTTP_RESPONSE_RECV Len[627], Url[http://vod-asset-playback.astro.com.my/vode-dashciscenc/75ccb7c2-0274-538e-acc1-e5b300e2e6ea/CC_481_eng_CEA-608_wvtt/236.m4f]
-2020-01-31 13:38:27.852 16453-18764/com.astro.astro I/NEXPLAYER: [Time 4205110220] [T18764] SRC3:[Callback_HTTP_Data_Received 10907] Callback_HTTP_Data_Received(http://vod-asset-playback.astro.com.my/vode-dashciscenc/75ccb7c2-0274-538e-acc1-e5b300e2e6ea/CC_481_eng_CEA-608_wvtt/236.m4f, 157, 157).
-2020-01-31 13:38:27.853 16453-18764/com.astro.astro I/NEXPLAYER: [Time 4205110220] [T18764] SRC2:[Callback_HTTP_Down_End 10924] Callback_HTTP_Down_End(http://vod-asset-playback.astro.com.my/vode-dashciscenc/75ccb7c2-0274-538e-acc1-e5b300e2e6ea/CC_481_eng_CEA-608_wvtt/236.m4f, 157).

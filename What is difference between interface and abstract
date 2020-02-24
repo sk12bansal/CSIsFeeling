@@ -68,4 +68,22 @@ Main difference between Inheritance and Polymorphism is that Inheritance create 
 
 
 Difference between Aggregation, Composition and Association in OOP? (answer)
-All three are Object oriented programming concepts to define relationship between objects. When one object make use of another object to do the task they are said to be associated with each other and when an object is made of several object in such that individual object has no value without it's owner e.g. Human is composition of body parts, when Human dies, body parts also dies. Aggregation on the other hand is less stronger form of composition where individual object can survive without owner e.g. City is aggregation of People. People can survive without cities.
+All three are Object oriented programming concepts to define relationship between objects. When one object make use of another object to do the task they are said to be associated with each other and when an object is made of several object in such that individual object has no value without it's owner e.g. Human is composition of body parts, when Human dies, body prts also dies. Aggregation on the other hand is less stronger form of composition where individual object can survive without owner e.g. Citay is aggregation of People. People can survive without cities.
+
+
+
+Singleton breaking point
+Reflection/Clone/serilization
+
+Abstract Classes in Java
+1. In Java, an instance of an abstract class cannot be created, we can have references of abstract class type though.
+2. an abstract class can contain constructors in Java. And a constructor of abstract class is called when an instance of a inherited class is created.
+3. In Java, we can have an abstract class without any abstract method. This allows us to create classes that cannot be instantiated, but can only be inherited.
+4. Abstract classes can also have final methods (methods that cannot be overridden). 
+
+1. Is it possible to create abstract and final class in Java?
+No.because we can't inherit that class.Because it it not only abstract and also final.
+2. Is it possible to have an abstract method in a final class?
+NO.Then we can't inherit and override that method.
+3. Is it possible to inherit from multiple abstract classes in Java?
+NO,Java does't support multiple inheritance in the classes. Cause for ambiguity.

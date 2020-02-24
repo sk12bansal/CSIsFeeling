@@ -19,3 +19,5 @@ Reasons why you should use livedata?
 6.proper configuration changes.
 	onconfiguration changes like device rotation immediately latest avaliable data is receiived.
 	prevents redundant requests to network or db.
+
+	

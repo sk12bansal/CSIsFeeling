@@ -1,0 +1,22 @@
+Android Important Topics
+Service vs intent Service
+Limitation of service
+launch mode 
+onconfiguration change 
+communication between two thread
+seriliazation vs parcelble
+viewmodel / livedata /data binding / room
+MVC/MVP/MVVM
+BroadcastReceiver
+AsyncTask
+AIDL
+Race Condition
+Mutual Exclusion
+DeadLock
+Producer and consumer 
+context vs applicationcontext
+diff between listview and recyclerview
+What is the ViewHolder pattern? Why should we use it?
+implict intent vs explicit intent
+What is the onTrimMemory() method?
+How does the OutOfMemory happens?
